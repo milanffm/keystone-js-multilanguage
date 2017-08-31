@@ -19,7 +19,7 @@
  */
 
 var keystone = require('keystone');
-var i18n = require("i18n");
+var i18n = require('i18n');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 
@@ -39,10 +39,15 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
+	app.get('/en', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
+	app.get('/en/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
+	app.get('/en/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
+	app.get('/en/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
+	app.all('/en/contact', routes.views.contact);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

@@ -42,9 +42,13 @@ keystone.set('locals', {
 
 // Configure i18n
 
+
 i18n.configure({
-    locales:['en', 'de', 'es'],
-    directory: __dirname + '/locales',
+	locales: ['en', 'de'],
+	directory: __dirname + '/locales',
+	autoReload: true,
+	syncFiles: true,
+	objectNotation: true,
 });
 
 // Load your project's Routes
@@ -60,7 +64,6 @@ keystone.set('nav', {
 });
 
 // Start Keystone to connect to your database and initialise the web server
-
 
 
 keystone.start();
