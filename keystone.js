@@ -46,9 +46,6 @@ keystone.set('locals', {
 i18n.configure({
 	locales: ['en', 'de'],
 	directory: __dirname + '/locales',
-	autoReload: true,
-	syncFiles: true,
-	objectNotation: true,
 });
 
 // Load your project's Routes
