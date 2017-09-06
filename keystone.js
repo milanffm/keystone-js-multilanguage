@@ -4,7 +4,8 @@ require('dotenv').config();
 
 // Require keystone
 var keystone = require('keystone'),
-	i18n = require('i18n');
+	i18n = require('i18n'),
+	KeystoneMenus = require('keystone-menus');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -28,6 +29,7 @@ keystone.init({
 
 // Load your project's Models
 keystone.import('models');
+KeystoneMenus.import(keystone);
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
@@ -58,6 +60,7 @@ keystone.set('nav', {
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
+	menus: ['menus', 'menu-items'],
 });
 
 // Start Keystone to connect to your database and initialise the web server
